@@ -28,3 +28,13 @@ exports.getAppraisals = async (req, res) => {
         res.status(400).send(e);
     }
 }
+
+exports.deleteAll = async (req, res) => {
+
+    try {
+        const deleteAppraisals = await Appraisal.remove({})
+        res.send({message: 'All deleted'})
+    } catch(e){
+        res.status(400).send(e)
+    }
+}
